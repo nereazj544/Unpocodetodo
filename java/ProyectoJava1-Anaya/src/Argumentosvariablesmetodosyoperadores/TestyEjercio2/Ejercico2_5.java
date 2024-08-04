@@ -2,7 +2,7 @@ package Argumentosvariablesmetodosyoperadores.TestyEjercio2;
 
 import java.util.Scanner;
 
-public class Ejercico2_3_Versionavanzada {
+public class Ejercico2_5 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
