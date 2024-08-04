@@ -1,0 +1,15 @@
+C:\Users\nzjha\Desktop\Clon_Github\Unpocodetodo\C sharp\ProyectoCSharp\bin\Debug\net8.0\ProyectoCSharp.exe
+C:\Users\nzjha\Desktop\Clon_Github\Unpocodetodo\C sharp\ProyectoCSharp\bin\Debug\net8.0\ProyectoCSharp.deps.json
+C:\Users\nzjha\Desktop\Clon_Github\Unpocodetodo\C sharp\ProyectoCSharp\bin\Debug\net8.0\ProyectoCSharp.runtimeconfig.json
+C:\Users\nzjha\Desktop\Clon_Github\Unpocodetodo\C sharp\ProyectoCSharp\bin\Debug\net8.0\ProyectoCSharp.dll
+C:\Users\nzjha\Desktop\Clon_Github\Unpocodetodo\C sharp\ProyectoCSharp\bin\Debug\net8.0\ProyectoCSharp.pdb
+C:\Users\nzjha\Desktop\Clon_Github\Unpocodetodo\C sharp\ProyectoCSharp\obj\Debug\net8.0\ProyectoCSharp.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\nzjha\Desktop\Clon_Github\Unpocodetodo\C sharp\ProyectoCSharp\obj\Debug\net8.0\ProyectoCSharp.AssemblyInfoInputs.cache
+C:\Users\nzjha\Desktop\Clon_Github\Unpocodetodo\C sharp\ProyectoCSharp\obj\Debug\net8.0\ProyectoCSharp.AssemblyInfo.cs
+C:\Users\nzjha\Desktop\Clon_Github\Unpocodetodo\C sharp\ProyectoCSharp\obj\Debug\net8.0\ProyectoCSharp.csproj.CoreCompileInputs.cache
+C:\Users\nzjha\Desktop\Clon_Github\Unpocodetodo\C sharp\ProyectoCSharp\obj\Debug\net8.0\ProyectoCSharp.sourcelink.json
+C:\Users\nzjha\Desktop\Clon_Github\Unpocodetodo\C sharp\ProyectoCSharp\obj\Debug\net8.0\ProyectoCSharp.dll
+C:\Users\nzjha\Desktop\Clon_Github\Unpocodetodo\C sharp\ProyectoCSharp\obj\Debug\net8.0\refint\ProyectoCSharp.dll
+C:\Users\nzjha\Desktop\Clon_Github\Unpocodetodo\C sharp\ProyectoCSharp\obj\Debug\net8.0\ProyectoCSharp.pdb
+C:\Users\nzjha\Desktop\Clon_Github\Unpocodetodo\C sharp\ProyectoCSharp\obj\Debug\net8.0\ProyectoCSharp.genruntimeconfig.cache
+C:\Users\nzjha\Desktop\Clon_Github\Unpocodetodo\C sharp\ProyectoCSharp\obj\Debug\net8.0\ref\ProyectoCSharp.dll
