@@ -22,6 +22,7 @@ public class Ejercicio1 {
                 "¡qué la supernova de un poder celestial!\r\n";
         String n = "\\n";
         String valor = args[0];
+        
                 /*TIPOS DE SYSTEM.OUT.PRINT */
         System.out.println("\033[37m> Un \033[1mSystem.out.println\033[0m \033[37msirve para mostrar mensajes");
         System.out.println("> Con \033[1mSystem.out.println\033[0m \033[37m inserta autamaticamente un salto de Linea sintener que usar el comando: "+ n + ", pero si omitimos el ln y en sulugar solo ponemos: \033[1mSystem.out.print\033[0m \033[37mno insertata un salto de linea");
