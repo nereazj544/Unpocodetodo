@@ -2,6 +2,7 @@
 1. Comando para crear el pryecto: ``npm create astro@latest``
     - Seguir las indicaciones del asistente
 2. Dentro del proyecto para arrancarlo: ``npm run dev``
+3. Añadir tailwind: ``npx astro add tailwind``
 
 
 # VIDEOS YT
