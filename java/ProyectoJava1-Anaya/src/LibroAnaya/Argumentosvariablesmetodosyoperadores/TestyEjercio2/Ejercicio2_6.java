@@ -1,6 +1,6 @@
 package Argumentosvariablesmetodosyoperadores.TestyEjercio2;
 
-public class Ejercicio_6 {
+public class Ejercicio2_6 {
     public static void main(String[] args) {
         String apellido = args[0];
         String np = args[1];
