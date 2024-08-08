@@ -114,7 +114,7 @@ public class InsertarDatos_Scanner {
         String sqlPreparada = "INSERT INTO empresa (nombre) VALUES (?)";
         PreparedStatement pStatement = conexion.prepareStatement(sqlPreparada);
         pStatement.setString(1, nombre);
-        int f = pStatement.executeUpdate(sqlPreparada);
+        int f = pStatement.executeUpdate();
         System.out.println("\033[1m \033[32m> El sistema mostrara dichos datos: \033[0m");
         System.out.printf("\033[1m Dato insertado: %s \033[0m", nombre);
         System.out.println("");
