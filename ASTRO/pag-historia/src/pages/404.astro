@@ -1,0 +1,36 @@
+---
+import Layout from "../layouts/Layout.astro"
+import Hero from "../sections/Hero.astro"
+import Footer from "../sections/Footer.astro"
+
+---
+
+<Layout title="404">
+    <Hero/>
+    <!-- ! NO FORMATEAR ESTILO SINO SHAWN QUEDA ENCIMA, QUIERO QUE QUEDE AL LADO CONTRARIO AL QUE ESTABA (VAMOS EN EL LADO IZQUIERDO(CREO)) -->
+
+    <div class="mb-3 px-9 text-center text-red-600 font-bold">
+        <h1 class="text-black">ERROR 404</h1>
+                    <h2>PÁGINA NO ENCONTRADA</h2>
+                <p>No pudimos encontra lo que buscas. Verifica que la URL sea correcta.</p>
+                </div>
+    <table align="center" class="m-auto">
+        <tr class="border-none p-28">
+            <!-- Imagen Shawn Froste -->
+            <td  align="center">
+                
+        <img src="https://animesher.com/orig/1/113/1135/11350/animesher.com_fubuki-shirou-inazumaeleven-inazuma-eleven-1135001.gif" class="px-2 mb-2 mt-3 w-[30em]"/>
+        </td>
+            <br></br>
+        <td class="w-50 align-middle text-center text-3xl">
+            <div class="mb-3 p-2">
+                <h1 class="font-bold text-secundary">¿¡QUE HAS HECHO?!</h1>
+                <h2 class="font-bold text-secundary">¡¡ME HAS ROTO LA PAGINA!!</h2>
+                <a href="/" class="inline-block skew-x-[-21deg] cursor-pointer border-2 border-primary font-semibold uppercase px-5 py-2.5 before:absolute before:-inset-0.5 before:origin-right before:scale-x-0 before:bg-primary hover:scale-110 hover:text-secondary hover:before:origin-left hover:before:scale-x-100 aria-disabled:pointer-events-none aria-disabled:border-[#666] aria-disabled:bg-[#666] aria-disabled:text-[#111] ease-in motion-safe:transition-[color,transform] motion-safe:before:transition-transform motion-safe:before:duration-300 motion-safe:before:ease-in motion-safe:hover:delay-100 motion-safe:hover:ease-out motion-safe:hover:before:delay-100 motion-safe:hover:before:ease-out mt-7 text-center">
+                    <span class="inline-block skew-x-[21deg]">IR AL INICIO</span>
+                </a>
+            </div>
+            </tr>
+        </table>
+    <Footer/>
+</Layout>

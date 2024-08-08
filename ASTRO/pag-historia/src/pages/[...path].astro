@@ -1,0 +1,57 @@
+---
+  // import Layout from "../layouts/Layout.astro"
+
+  /*
+  import InfoPersonajes from '../sections/infoPersonajes.astro'
+export function getStaticPaths() {
+  return [
+    { params: { path: "infoPersonajes" } },
+    { params: { path: "SobreMi" } },
+  ];
+}
+const s = "Historias Neo";
+const { path } = Astro.params;
+
+let PCompont;
+
+switch(path){
+  case 'infoPersonajes':
+    PCompont = (await import('../sections/infoPersonajes.astro'))
+    break
+    case 'SobreMi':
+    PCompont = (await import('../sections/SobreMi.astro'))
+    break
+}
+*/
+
+export async function getStaticPaths() {
+  return [
+    { params: { path: 'infoPersonajes' } },
+    { params: { path: 'SobreMi' } },
+  ];
+}
+
+const { path } = Astro.params;
+
+// Importación dinámica del componente correspondiente
+let PComponent;
+
+switch (path) {
+  case 'infoPersonajes':
+    PComponent = (await import('../sections/infoPersonajes.astro')).default;
+    break;
+  case 'SobreMi':
+    PComponent = (await import('../sections/SobreMi.astro')).default;
+    break;
+  default:
+    // Si el path no coincide con los definidos, lanza un error
+    throw new Error(`No se encontró una página para la ruta: ${path}`);
+}
+
+---
+<!-- <InfoPersonajes/> -->
+
+<!-- Renderizado del componente dinámico -->
+{PComponent && <PComponent />}
+
+
