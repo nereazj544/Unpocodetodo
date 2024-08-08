@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
-
+import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.sql.Statement;
 
@@ -43,7 +43,7 @@ public class InsertarDatos_Scanner {
                     InsertarDatosP(conexion, sc);
                     break;
                 case 2:
-                    InsertarDatosM(conexion);
+                    InsertarDatosM(conexion, sc);
                     break;
 
                 default:
@@ -57,13 +57,9 @@ public class InsertarDatos_Scanner {
         } catch (SQLException e) {
             System.out.println("\033[31m> El sistema a detectado un error en la base de datos.");
             System.out.println("\033[0m");
-            System.out.println("\033[31m> El sistema a detectado estos posibles errores:" +
-                    "\033[0m\033[13m - Erroes en la conesxion" +
-                    "\033[0m\033[13m - Erroes en la consulta SQL" +
-                    "\033[0m\033[13m - Probleas de concurrencia" +
-                    "\033[0m\033[13m - Otros errores...");
-            System.out.println("\033[0m");
             System.out.println("\033[31m> El sistema mostrara más posibles errores: \033[0m");
+            System.out.println(e.getErrorCode());
+            System.out.println(e.getSQLState());
             e.printStackTrace();
         }
 
@@ -103,15 +99,32 @@ public class InsertarDatos_Scanner {
         System.out.println("");
         System.out.println("> El sistema detecto que se han modificado algunas filas: " + f);
 
+        conexion.close();
+        sc.close();
         System.out.println("\033[1m \033[32m> El sistema se desconecto correctamente con la base de datos\033[0m");
-
     }
-
+    
     // ! --- EMPRESA ---
-    private static void InsertarDatosM(Connection conexion) {
-
+    // ? SENTENCIAS PREPARADAS
+    private static void InsertarDatosM(Connection conexion, Scanner sc) throws SQLException {
+        sc.nextLine();
+        System.out.println("> El sistema necesita: NOMBRE DE LA EMPRESA");
+        String nombre = sc.nextLine();
+        
+        String sqlPreparada = "INSERT INTO empresa (nombre) VALUES (?)";
+        PreparedStatement pStatement = conexion.prepareStatement(sqlPreparada);
+        pStatement.setString(1, nombre);
+        int f = pStatement.executeUpdate(sqlPreparada);
+        System.out.println("\033[1m \033[32m> El sistema mostrara dichos datos: \033[0m");
+        System.out.printf("\033[1m Dato insertado: %s \033[0m", nombre);
+        System.out.println("");
+        System.out.println("> El sistema detecto que se han modificado algunas filas: " + f);
+        
+        
+        conexion.close();
+        sc.close();
         System.out.println("\033[1m \033[32m> El sistema se desconecto correctamente con la base de datos\033[0m");
     }
-
+    
 }
 // END CLASS
