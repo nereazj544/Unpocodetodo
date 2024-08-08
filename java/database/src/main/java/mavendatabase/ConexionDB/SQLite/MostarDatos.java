@@ -1,4 +1,4 @@
-package mavendatabase.SQLite;
+package mavendatabase.ConexionDB.SQLite;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
