@@ -68,8 +68,8 @@ public class MostarDatos {
         Statement s = conexion.createStatement();
         String sql = "SELECT * FROM personajes";
         ResultSet rset = s.executeQuery(sql);
+        System.out.println("> TABLA PESONAJES");
         while (rset.next()) {
-            System.out.println("> TABLA PESONAJES");
             System.out.println("> ID del personaje: " + rset.getInt("id"));
             System.out.println("> Nombre del personaje: " + rset.getString("nombre"));
             System.out.println("> Juego al que pertenece el personaje: " + rset.getString("juego"));
