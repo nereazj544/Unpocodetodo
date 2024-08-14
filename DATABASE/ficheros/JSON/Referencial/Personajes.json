@@ -1,0 +1,152 @@
+[
+    {
+        "id": 1,
+        "nombre": "Shawn Froste",
+        "videojuego": "inazuma eleven",
+        "id_empresa": 1
+    },
+    {
+        "id": 2,
+        "nombre": "Hectro Helio",
+        "videojuego": "inazuma eleven",
+        "id_empresa": 1
+    },
+    {
+        "id": 3,
+        "nombre": "Jordan Greenway",
+        "videojuego": "inazuma eleven",
+        "id_empresa": 1
+    },
+    {
+        "id": 4,
+        "nombre": "Paolo Bianchi",
+        "videojuego": "inazuma eleven",
+        "id_empresa": 1
+    },
+    {
+        "id": 5,
+        "nombre": "Bai Long",
+        "videojuego": "inazuma eleven",
+        "id_empresa": 1
+    },
+    {
+        "id": 6,
+        "nombre": "Mark Evans",
+        "videojuego": "inazuma eleven",
+        "id_empresa": 1
+    },
+    {
+        "id": 7,
+        "nombre": "Umei Sasanami",
+        "videojuego": "inazuma eleven",
+        "id_empresa": 1
+    },
+    {
+        "id": 8,
+        "nombre": "Valentin Eisner",
+        "videojuego": "inazuma eleven",
+        "id_empresa": 1
+    },
+    {
+        "id": 9,
+        "nombre": "Bennett",
+        "videojuego": "Genshin Impact",
+        "id_empresa": 4
+    },
+    {
+        "id": 10,
+        "nombre": "Kazuha",
+        "videojuego": "Genshin Impact",
+        "id_empresa": 4
+    },
+    {
+        "id": 11,
+        "nombre": "Arlecchino",
+        "videojuego": "Genshin Impact",
+        "id_empresa": 4
+    },
+    {
+        "id": 12,
+        "nombre": "Xiao",
+        "videojuego": "Genshin Impact",
+        "id_empresa": 4
+    },
+    {
+        "id": 13,
+        "nombre": "Jing Yan",
+        "videojuego": "Honkai Star Rail",
+        "id_empresa": 4
+    },
+    {
+        "id": 14,
+        "nombre": "Kafka",
+        "videojuego": "Honkai Star Rail",
+        "id_empresa": 4
+    },
+    {
+        "id": 15,
+        "nombre": "Gepard",
+        "videojuego": "Honkai Star Rail",
+        "id_empresa": 4
+    },
+    {
+        "id": 16,
+        "nombre": "Topaz y Conti",
+        "videojuego": "Honkai Star Rail",
+        "id_empresa": 4
+    },
+    {
+        "id": 17,
+        "nombre": "Jiyan",
+        "videojuego": "Wuthering Waves",
+        "id_empresa": 3
+    },
+    {
+        "id": 18,
+        "nombre": "Calcharo",
+        "videojuego": "Wuthering Waves",
+        "id_empresa": 3
+    },
+    {
+        "id": 19,
+        "nombre": "Lingyang",
+        "videojuego": "Wuthering Waves",
+        "id_empresa": 3
+    },
+    {
+        "id": 20,
+        "nombre": "Changli",
+        "videojuego": "Wuthering Waves",
+        "id_empresa": 3
+    },
+    {
+        "id": 22,
+        "nombre": "Marina",
+        "videojuego": "Splatoon 2",
+        "id_empresa": 2
+    },
+    {
+        "id": 23,
+        "nombre": "Luigi",
+        "videojuego": "Luigi Mansion",
+        "id_empresa": 2
+    },
+    {
+        "id": 24,
+        "nombre": "Bowsy",
+        "videojuego": "Wuthering Waves",
+        "id_empresa": 2
+    },
+    {
+        "id": 25,
+        "nombre": "Roque",
+        "videojuego": "Animal Crossing",
+        "id_empresa": 2
+    },
+    {
+        "id": 26,
+        "nombre": "Mario",
+        "videojuego": "Super Mario Bross",
+        "id_empresa": 2
+    }
+]
