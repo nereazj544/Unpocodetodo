@@ -38,7 +38,6 @@ public class AñadirDatosyTablasqldesdejava {
                 default:
                     break;
             }
-
         } catch (SQLException e) {
             System.out.println("> El sistema detecto que hubo una falal en la base de datos");
             e.printStackTrace();
@@ -150,7 +149,7 @@ public class AñadirDatosyTablasqldesdejava {
 
         System.out.println("Tablas en la base de datos:");
         while (tables.next()) {
-            String tableName = tables.getString("TABLE_NAME");
+            String tableName = tables.getString("\033[1m> TABLE_NAME\033[0m");
             System.out.println(tableName);
         }
         do {
@@ -209,11 +208,17 @@ public class AñadirDatosyTablasqldesdejava {
                 System.out.print("> Respuesta: ");
                 String a = sc.nextLine();
 
+                System.out.println("> ¿es saga? (true o false): ");
+                System.out.print("> Respuesta: ");
+                String saga = sc.nextLine().trim();
+                int esSaga = saga.equalsIgnoreCase("true") ? 1 : 0;
+
                 // ! -- DATOS AÑADIDOS CON SENTENCIAS PREPARADAS
-                String sqlinset = "insert INTO libros (titulo, autor) values (?, ?) ";
+                String sqlinset = "insert INTO libros (titulo, autor, es_saga) values (?, ?, ?) ";
                 PreparedStatement pStatement = connection.prepareStatement(sqlinset);
                 pStatement.setString(1, t);
                 pStatement.setString(2, a);
+                pStatement.setInt(3, esSaga);
 
                 int f = pStatement.executeUpdate();
                 System.out.println("> El sistema ha modificado: " + f);
@@ -228,16 +233,22 @@ public class AñadirDatosyTablasqldesdejava {
                 System.out.print("> Respuesta: ");
                 String nv = sc.nextLine();
 
+                System.out.println("> ¿es protagonista? (true o false): ");
+                System.out.print("> Respuesta: ");
+                String prota = sc.nextLine().trim();
+                int esProta = prota.equalsIgnoreCase("true") ? 1 : 0;
+
                 System.out.println("> ID libro: ");
                 System.out.print("> Respuesta: ");
                 int id = sc.nextInt();
 
                 // ! -- DATOS AÑADIDOS CON SENTENCIAS PREPARADAS
-                String sqlinset = "insert INTO personajeslibros (pnombre, novela, libros_id) values (?, ?, ?) ";
+                String sqlinset = "insert INTO personajeslibros (pnombre, novela, es_protagonista, libros_id) values (?, ?, ?, ?) ";
                 PreparedStatement pStatement = connection.prepareStatement(sqlinset);
                 pStatement.setString(1, nombre);
                 pStatement.setString(2, nv);
-                pStatement.setInt(3, id);
+                pStatement.setInt(3, esProta);
+                pStatement.setInt(4, id);
 
                 int f = pStatement.executeUpdate();
                 System.out.println("> El sistema ha modificado: " + f);
