@@ -2,11 +2,13 @@ package mavendatabase.ConexionDB.SQLite;
 
 import java.io.BufferedReader;
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.sql.Connection;
+import java.sql.DatabaseMetaData;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.Scanner;
@@ -15,69 +17,186 @@ import java.util.Scanner;
  * AñadirDatosyTablasqldesdejava
  */
 public class AñadirDatosyTablasqldesdejava {
-    public static void main(String[] args) {
-
+    public static void main(String[] args) throws IOException {
         try (Scanner sc = new Scanner(System.in)) {
-
             // ! -- Pedir archivo base de datos
             System.out.println("> El sistema necesita la ruta del fichero \033[1m'.db'\033[0m: ");
             String url = sc.nextLine();
             Connection connection = DriverManager.getConnection("jdbc:sqlite:" + url);
 
-            // ! -- Pedir archivo sql
-            System.out.println("> El sistema necesita la ruta del fichero \033[1m'.sql'\033[0m: ");
-            String ruta = sc.nextLine();
-            File file = new File(ruta);
+            System.out.println("> Añadir tablas o datos: ");
+            String r = sc.nextLine();
+            switch (r) {
+                case "tablas":
+                    Tablas(connection, sc);
+                    break;
+                case "datos":
+                    Datos(connection);
+                    break;
 
-            // Comprobamos que existe
-            if (!file.exists()) {
-                System.out.println("> El archivo SQL no se encuentra en la ruta especificada.");
-                return;
+                default:
+                    break;
             }
 
-            BufferedReader br = new BufferedReader(new FileReader(file));
-            StringBuilder sql = new StringBuilder();
-            /*
-             * StringBuilder sql = new StringBuilder();
-             * String line;
-             * while ((line = br.readLine()) != null) {
-             * sql.append(line).append("\n");
-             * }
-             * 
-             * Statement statement = connection.createStatement();
-             * statement.executeUpdate(sql.toString());
-             * 
-             * br.close();
-             */
-            String line;
-            while ((line = br.readLine()) != null) {
-                sql.append(line).append(" ");
-            }
-            br.close();
-
-            // Separar las sentencias SQL por ';' y ejecutarlas una por una
-            String[] sqlStatements = sql.toString().split(";");
-            Statement statement = connection.createStatement();
-
-            for (String sqlStatement : sqlStatements) {
-                sqlStatement = sqlStatement.trim();
-                if (!sqlStatement.isEmpty()) {
-                    statement.executeUpdate(sqlStatement);
-                }
-            }
-
-            connection.close();
-            System.out.println("> Los datos y las tablas se han añadido correctamente.");
-
-            connection.close();
         } catch (SQLException e) {
             System.out.println("> El sistema detecto que hubo una falal en la base de datos");
             e.printStackTrace();
 
-        } catch (IOException e) {
-            System.out.println("> El sistemana ha detectado un error en algun lado.");
-            e.printStackTrace();
         }
     }
 
+    private static void Tablas(Connection connection, Scanner sc) throws IOException, SQLException {
+        // ! -- Pedir archivo sql
+        System.out.println("> El sistema necesita la ruta del fichero \033[1m'.sql'\033[0m: ");
+        String ruta = sc.nextLine();
+        File file = new File(ruta);
+
+        // Comprobamos que existe
+        if (!file.exists()) {
+            System.out.println("> El archivo SQL no se encuentra en la ruta especificada.");
+            return;
+        }
+
+        BufferedReader br = new BufferedReader(new FileReader(file));
+        StringBuilder sql = new StringBuilder();
+        /*
+         * StringBuilder sql = new StringBuilder();
+         * String line;
+         * while ((line = br.readLine()) != null) {
+         * sql.append(line).append("\n");
+         * }
+         * 
+         * Statement statement = connection.createStatement();
+         * statement.executeUpdate(sql.toString());
+         * 
+         * br.close();
+         */
+        String line;
+        while ((line = br.readLine()) != null) {
+            sql.append(line).append(" ");
+        }
+        br.close();
+
+        // Separar las sentencias SQL por ';' y ejecutarlas una por una
+        String[] sqlStatements = sql.toString().split(";");
+        Statement statement = connection.createStatement();
+
+        for (String sqlStatement : sqlStatements) {
+            sqlStatement = sqlStatement.trim();
+            if (!sqlStatement.isEmpty()) {
+                System.out.println("Ejecutando sentencia SQL: " + sqlStatement);
+                statement.executeUpdate(sqlStatement);
+            }
+        }
+        System.out.println("> El sistema ha creado las tabals");
+    }
+
+    private static void Datos(Connection connection) throws SQLException {
+        Scanner sc = new Scanner(System.in);
+        DatabaseMetaData metaData = connection.getMetaData();
+
+        // Obtener nombres de las tablas
+        ResultSet tables = metaData.getTables(null, null, "%", new String[] { "TABLE" });
+
+        System.out.println("Tablas en la base de datos:");
+        while (tables.next()) {
+            String tableName = tables.getString("TABLE_NAME");
+            System.out.println(tableName);
+        }
+        do {
+
+            System.out.println("> El sistema necesita el nombre de la tabla(FIN pa terminar): ");
+            String tb = sc.nextLine();
+
+            if (tb.equalsIgnoreCase("FIN")) {
+                break;
+            }
+
+            if (tb.equals("empresa")) {
+                // ! -- DATOS A AÑADIR
+                System.out.println("> Nombre de la empresa: ");
+                System.out.print("> Respuesta: ");
+                String nombre = sc.nextLine();
+
+                // ! -- DATOS AÑADIDOS CON SENTENCIAS PREPARADAS
+                String sqlinset = "INSERT INTO empresa (nombre) VALUES (?) ";
+                PreparedStatement pStatement = connection.prepareStatement(sqlinset);
+                pStatement.setString(1, nombre);
+                int f = pStatement.executeUpdate();
+                System.out.println("> El sistema ha modificado: " + f);
+
+            } else if (tb.equals("personajes")) {
+                // ! -- DATOS A AÑADIR
+                System.out.println("> Nombre de personaje: ");
+                System.out.print("> Respuesta: ");
+                String nombre = sc.nextLine();
+
+                System.out.println("> Juego de personaje: ");
+                System.out.print("> Respuesta: ");
+                String j = sc.nextLine();
+
+                System.out.println("> ID Empresa: ");
+                System.out.print("> Respuesta: ");
+                int id = sc.nextInt();
+
+                // ! -- DATOS AÑADIDOS CON SENTENCIAS PREPARADAS
+                String sqlinset = "insert INTO personajes (nombre, juego, empresa_id) values (?, ?, ?) ";
+                PreparedStatement pStatement = connection.prepareStatement(sqlinset);
+                pStatement.setString(1, nombre);
+                pStatement.setString(2, j);
+                pStatement.setInt(3, id);
+
+                int f = pStatement.executeUpdate();
+                System.out.println("> El sistema ha modificado: " + f);
+
+            } else if (tb.equals("libros")) {
+                // ! -- DATOS A AÑADIR
+                System.out.println("> Nombre del libro: ");
+                System.out.print("> Respuesta: ");
+                String t = sc.nextLine();
+
+                System.out.println("> Autor: ");
+                System.out.print("> Respuesta: ");
+                String a = sc.nextLine();
+
+                // ! -- DATOS AÑADIDOS CON SENTENCIAS PREPARADAS
+                String sqlinset = "insert INTO libros (titulo, autor) values (?, ?) ";
+                PreparedStatement pStatement = connection.prepareStatement(sqlinset);
+                pStatement.setString(1, t);
+                pStatement.setString(2, a);
+
+                int f = pStatement.executeUpdate();
+                System.out.println("> El sistema ha modificado: " + f);
+
+            } else if (tb.equals("personajeslibros")) {
+                // ! -- DATOS A AÑADIR
+                System.out.println("> Nombre de personaje: ");
+                System.out.print("> Respuesta: ");
+                String nombre = sc.nextLine();
+
+                System.out.println("> nombre de la novela: ");
+                System.out.print("> Respuesta: ");
+                String nv = sc.nextLine();
+
+                System.out.println("> ID libro: ");
+                System.out.print("> Respuesta: ");
+                int id = sc.nextInt();
+
+                // ! -- DATOS AÑADIDOS CON SENTENCIAS PREPARADAS
+                String sqlinset = "insert INTO personajeslibros (pnombre, novela, libros_id) values (?, ?, ?) ";
+                PreparedStatement pStatement = connection.prepareStatement(sqlinset);
+                pStatement.setString(1, nombre);
+                pStatement.setString(2, nv);
+                pStatement.setInt(3, id);
+
+                int f = pStatement.executeUpdate();
+                System.out.println("> El sistema ha modificado: " + f);
+
+            } else {
+                System.out.println("> El sistema no ha detectado ningun nombre");
+
+            }
+        } while (true);
+        sc.close();
+    }
 }

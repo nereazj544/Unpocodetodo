@@ -12,7 +12,7 @@ CREATE TABLE personajes(
     foreign key (empresa_id) references empresa(id)
 );
 
--- ! Crear tabla empresa con auto-incremento en SQLite
+-- ! Crear tabla con auto-incremento en SQLite
 CREATE TABLE empresa(
     id INTEGER PRIMARY KEY AUTOINCREMENT, -- Usar INTEGER PRIMARY KEY AUTOINCREMENT
     nombre VARCHAR(255) NOT NULL
