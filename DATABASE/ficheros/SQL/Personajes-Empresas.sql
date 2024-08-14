@@ -1,10 +1,10 @@
 --! TABLAS (MySQL)
-create table empresa(
+CREATE TABLE empresa(
     id int auto_increment PRIMARY KEY,
     nombre VARCHAR(255) NOT Null
 );
 
-create table personajes(
+CREATE TABLE personajes(
     id int auto_increment PRIMARY KEY,
     nombre VARCHAR(255) NOT Null,
     juego  VARCHAR(255) NOT Null,

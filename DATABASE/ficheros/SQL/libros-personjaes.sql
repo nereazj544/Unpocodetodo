@@ -1,11 +1,15 @@
-create table Libros{
+CREATE TABLE libros(
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     titulo VARCHAR(255) NOT Null,
     autor VARCHAR(255) NOT Null
-}
-create table Personajes_Libros{
+);
+
+CREATE TABLE personajeslibros (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
-    nombre_personaje VARCHAR(255) NOT Null,
-    novela VARCHAR(255) NOT Null,
-    FOREIGN KEY (id_libro) REFERENCES Libros(id)
-}
+    pnombre VARCHAR(255) NOT NULL,
+    novela VARCHAR(255) NOT NULL,
+    libros_id INTEGER,  
+    FOREIGN KEY (libros_id) REFERENCES libros(id)
+);
+
+

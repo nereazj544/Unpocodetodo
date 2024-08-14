@@ -28,8 +28,8 @@ public class AñadirDatosyTablasqldesdejava {
             System.out.println("> El sistema necesita la ruta del fichero \033[1m'.sql'\033[0m: ");
             String ruta = sc.nextLine();
             File file = new File(ruta);
-            
-            //Comprobamos que existe
+
+            // Comprobamos que existe
             if (!file.exists()) {
                 System.out.println("> El archivo SQL no se encuentra en la ruta especificada.");
                 return;
@@ -37,15 +37,38 @@ public class AñadirDatosyTablasqldesdejava {
 
             BufferedReader br = new BufferedReader(new FileReader(file));
             StringBuilder sql = new StringBuilder();
+            /*
+             * StringBuilder sql = new StringBuilder();
+             * String line;
+             * while ((line = br.readLine()) != null) {
+             * sql.append(line).append("\n");
+             * }
+             * 
+             * Statement statement = connection.createStatement();
+             * statement.executeUpdate(sql.toString());
+             * 
+             * br.close();
+             */
             String line;
             while ((line = br.readLine()) != null) {
-                sql.append(line).append("\n");
+                sql.append(line).append(" ");
+            }
+            br.close();
+
+            // Separar las sentencias SQL por ';' y ejecutarlas una por una
+            String[] sqlStatements = sql.toString().split(";");
+            Statement statement = connection.createStatement();
+
+            for (String sqlStatement : sqlStatements) {
+                sqlStatement = sqlStatement.trim();
+                if (!sqlStatement.isEmpty()) {
+                    statement.executeUpdate(sqlStatement);
+                }
             }
 
-            Statement statement = connection.createStatement();
-            statement.executeUpdate(sql.toString());
+            connection.close();
+            System.out.println("> Los datos y las tablas se han añadido correctamente.");
 
-            br.close();
             connection.close();
         } catch (SQLException e) {
             System.out.println("> El sistema detecto que hubo una falal en la base de datos");

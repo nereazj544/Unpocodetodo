@@ -1,13 +1,13 @@
 -- Migrations will appear here as you chat with AI
 
-create table libro (
+CREATE TABLE libro (
   id bigint primary key generated always as identity,
   titulo text not null,
   autor text not null,
   fecha_publicacion date
 );
 
-create table personajes (
+CREATE TABLE personajes (
   id bigint primary key generated always as identity,
   nombre text not null,
   descripcion text,
