@@ -2,6 +2,7 @@ package mavendatabase.ConexionDB.SQLite;
 
 import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.sql.Connection;
@@ -93,6 +94,55 @@ public class AñadirDatosyTablasqldesdejava {
 
     private static void Datos(Connection connection) throws SQLException {
         Scanner sc = new Scanner(System.in);
+        System.out.println("> fichero o manual");
+        System.out.print("> Respuesta: ");
+        String r = sc.nextLine();
+        switch (r) {
+            case "fichero":
+                DatosF(connection, sc);
+                break;
+            case "manual":
+                DatosM(connection, sc);
+                break;
+
+            default:
+                break;
+        }
+    }
+
+    private static void DatosF(Connection connection, Scanner sc) {
+        System.out.println("> El sistema necesita la ruta del fichero \033[1m'.sql' o '.txt'\033[0m: ");
+        String ruta = sc.nextLine();
+        File file = new File(ruta);
+
+        try (Scanner scanner = new Scanner(file)) {
+            StringBuilder sql = new StringBuilder();
+            while (scanner.hasNextLine()) {
+                sql.append(scanner.nextLine()).append("\n"); // Usar salto de línea para separar sentencias
+            }
+
+            // Separar las sentencias SQL por ';' y ejecutarlas una por una
+            String[] sqlStatements = sql.toString().split(";");
+            Statement statement = connection.createStatement();
+
+            for (String sqlStatement : sqlStatements) {
+                sqlStatement = sqlStatement.trim();
+                if (!sqlStatement.isEmpty()) {
+                    statement.executeUpdate(sqlStatement);
+                }
+            }
+
+            System.out.println("> Los datos se han insertado correctamente desde el archivo.");
+        } catch (SQLException e) {
+            System.out.println("> Error al ejecutar las sentencias SQL.");
+            e.printStackTrace();
+        } catch (FileNotFoundException e) {
+            System.out.println("> El archivo no se encuentra en la ruta especificada.");
+            e.printStackTrace();
+        }
+    }
+
+    private static void DatosM(Connection connection, Scanner sc) throws SQLException {
         DatabaseMetaData metaData = connection.getMetaData();
 
         // Obtener nombres de las tablas
