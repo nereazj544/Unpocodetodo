@@ -88,7 +88,6 @@ public class InsertarDatos_Scanner {
                 nombre, juego, empresaid);
 
         Statement s = conexion.createStatement();
-        int f = s.executeUpdate(sql);
         System.out.println("\033[1m \033[32m> El sistema ha añadido correctamente los daots a la base de datos\033[0m");
         System.out.println("\033[1m \033[32m> El sistema mostrara dichos datos: \033[0m");
         System.out.printf("\033[1m Dato insertado: %s \033[0m", nombre);
@@ -97,8 +96,9 @@ public class InsertarDatos_Scanner {
         System.out.println("");
         System.out.printf("\033[1m Dato insertado: %s \033[0m", empresaid);
         System.out.println("");
+        int f = s.executeUpdate(sql);
         System.out.println("> El sistema detecto que se han modificado algunas filas: " + f);
-
+        
         conexion.close();
         sc.close();
         System.out.println("\033[1m \033[32m> El sistema se desconecto correctamente con la base de datos\033[0m");
