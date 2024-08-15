@@ -15,7 +15,6 @@ import com.mongodb.MongoClient;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
 
-
 public class MongoDB {
     public static void main(String[] args) {
         try (Scanner sc = new Scanner(System.in)) {
@@ -57,7 +56,8 @@ public class MongoDB {
         System.out.println("> El sistema se ha conectado a\033[1m\033[32m MongoDB\033[0m");
 
         do {
-            System.out.println("\033[1m\033[36m> El sistema necesita que escribas: empresa, personajes o opciones (fin para salir)\033[0m");
+            System.out.println(
+                    "\033[1m\033[36m> El sistema necesita que escribas: empresa, personajes o opciones (fin para salir)\033[0m");
             String r = sc.nextLine();
             if (r.equals("opciones")) {
                 Opciones(sc);
@@ -144,7 +144,7 @@ public class MongoDB {
                     bf.close();
                 } catch (FileNotFoundException e) {
                     System.out.println("> El sistema no ha detectado el archivo");
-                }catch (IOException e){
+                } catch (IOException e) {
                     System.out.println("> El sistema ha detectado un error");
                 }
             }
@@ -162,7 +162,22 @@ public class MongoDB {
         System.out.println("4- Listar Datos");
         System.out.println("5- Buscar Datos");
         int r = sc.nextInt();
-        
+
+        switch (r) {
+            case 1:
+                GenerearJson();
+                break;
+            case 2:
+                // InsetarDatos(sc);
+                break;
+
+            default:
+                break;
+        }
+
+    }
+
+    private static void GenerearJson() {
 
     }
 }
