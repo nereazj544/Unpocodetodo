@@ -42,12 +42,24 @@ public class Crear {
                         System.out.println("> Error: No se pudo encontrar el archivo en la ruta especificada.");
                     }
 
-                    Scanner file = new Scanner(rt);
+                    Scanner file = new Scanner(ruta);
                     StringBuilder sb = new StringBuilder();
+                    String l;
                     while (file.hasNextLine()) {
-                        String l = file.nextLine(); // Corrección aquí
+                        l = file.nextLine();
                         sb.append(l);
                     }
+                    /*
+                     * JSONObject jsonObject = new JSONObject(sb.toString());
+                     * JSONArray jArray = jsonObject.getJSONArray(r); // Obtener el array
+                     * correspondiente ('empresa' o 'personajes')
+                     * 
+                     * for (int i = 0; i < jArray.length(); i++) {
+                     * JSONObject jObject = jArray.getJSONObject(i);
+                     * Document doc = Document.parse(jObject.toString());
+                     * col.insertOne(doc);
+                     * }
+                     */
 
                     JSONArray jArray = new JSONArray(sb.toString());
                     for (int i = 0; i < jArray.length(); i++) {
@@ -55,8 +67,9 @@ public class Crear {
                         Document doc = Document.parse(jObject.toString());
                         col.insertOne(doc);
                     }
+
+                    System.out.println("> El sistema ha creado: empresa");
                     file.close();
-                    System.out.println("> El sistema ha creado: " + r);
                 } catch (Exception e) {
                     System.out.println("> Error: " + e.getMessage());
                 }
@@ -75,7 +88,7 @@ public class Crear {
                         System.out.println("> Error: No se pudo encontrar el archivo en la ruta especificada.");
                     }
 
-                    Scanner file = new Scanner(rt);
+                    Scanner file = new Scanner(ruta);
                     StringBuilder sb = new StringBuilder();
                     while (file.hasNextLine()) {
                         String l = file.nextLine(); // Corrección aquí
