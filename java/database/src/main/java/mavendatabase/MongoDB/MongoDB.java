@@ -155,7 +155,14 @@ public class MongoDB {
 
     // TODO: Menu de consultas.
     private static void Consultas(Scanner sc) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'Consultas'");
+        System.out.println("> Menu de las consultas: ");
+        System.out.println("1- Generear archivo Json");
+        System.out.println("2- Insertar datos (teclado)");
+        System.out.println("3- Borrar datos (teclados)");
+        System.out.println("4- Listar Datos");
+        System.out.println("5- Buscar Datos");
+        int r = sc.nextInt();
+        
+
     }
 }
