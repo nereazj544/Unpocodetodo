@@ -1,11 +1,207 @@
 ---
-import Layout from "../layouts/Layout.astro"
-import Hero from "../sections/Hero.astro"
-import Footer from "../sections/Footer.astro"
+import Layout from "../layouts/Layout.astro";
+import Hero from "../sections/Hero.astro";
+import Footer from "../sections/Footer.astro";
 ---
 
 <Layout title="SobreMi - Historia">
-    <Hero/>
-    <Footer/>
+    <Hero />
+
+    <div class="text-center font-bold text-8xl m-11 p-3">
+        <p>¡Hola, soy Neo!</p>
+    </div>
+    <div class="font-medium">
+        <h3 class="font-semibold text-black p-2 text-center text-2xl">
+            Sobre mi
+        </h3>
+
+        <table align="center">
+            <tr>
+                <td
+                    align="center"
+                    class="h-2 p-2 shadow-2xl shadow-blue-400 bg-transparent w-96"
+                >
+                    <ul class="list-none">
+                        <li>
+                            💻 Algo a destacar de mi es que<span
+                                class="font-semibold text-secundary"
+                            >
+                                me gusta más diseñar que programar.</span
+                            >
+                        </li>
+                        <li>
+                            💻 Mis lenguajes favoritos se podrian decir que son:
+                            <ul class="font-semibold text-secundary">
+                                <li>HTML</li>
+                                <li>CSS</li>
+                            </ul>
+                            Aún que tambien sé/estoy aprendiendo los siguientes lenguajes:
+                            <ul class="font-semibold text-secundary">
+                                <li>Java</li>
+                                <li>MySql / SQLite</li>
+                                <li>JavaScript</li>
+                                <li>TypeScript</li>
+                                <li>C#</li>
+                                <li>Python</li>
+                            </ul>
+                        </li>
+                    </ul>
+
+                    <p>⚽ Soy un enorme fan de Inazuma Eleven</p>
+                </td>
+                <!-- Imagen Shawn Froste -->
+                <td align="center">
+                    <img
+                        class="p-3 max-w-80"
+                        width="100%"
+                        height="100%"
+                        src="https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExNXI0Y2Y3bG5hOTgwNzZ0eW1mbXNtM3cyZjBrdWlxZGpvZHF4MWw2ZyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/GBg0e0ksxX3Gg/giphy.gif"
+                    />
+                </td>
+            </tr>
+        </table>
+    </div>
+
+    <!-- EDUCACION/EXPERIENCIA -->
+    <div class="m-24"></div>
+    <div class="m-3 p-1">
+        <table
+            border="1"
+            cellpadding="10"
+            cellspacing="0"
+            style="width: 100%; border-collapse: collapse;"
+        >
+            <tr>
+                <th style="width: 50%; text-align: left;">Educación</th>
+                <th style="width: 50%; text-align: left;">Experiencia</th>
+            </tr>
+            <tr>
+                <td>
+                    <div class="ed">
+                        <ul>
+                            <li>
+                                <div class="date">2016 - 2019</div>
+                                <div class="contenido">
+                                    <h3>IES Pérez de Ayala</h3>
+                                    <p>
+                                        Educación Secundaria Obligatoria (ESO)
+                                    </p>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="date">2020 - 2021</div>
+                                <div class="contenido">
+                                    <h3>IES Monte Naranco</h3>
+                                    <p>
+                                        Grado Medio: Sistemas Microinformáticos
+                                        y Redes
+                                    </p>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="date">2022 - [En curso]</div>
+                                <div class="contenido">
+                                    <h3>IES Doctor Fleming</h3>
+                                    <p>
+                                        Grado Superior: Desarrollo de
+                                        aplicaciones multimedia
+                                    </p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </td>
+                <td>
+                    <h3 class="font-extrabold">Astrunorte</h3>
+                    <p>Prácticas - 3 meses</p>
+                    <p>Abril - Junio</p>
+                    <ul class="lis">
+                        <li>Mantenimiento y reparacion de equipos</li>
+                        <li>
+                            Configuracion y actualización de sistemas operativos
+                            y aplicaciones
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <th style="text-align: left;" colspan="2">Certificaciones</th>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <span class="font-extrabold"
+                        >Pasaporte de Seguridad: Certificado de nivel básico en
+                        prevención de riesgos laborales</span
+                    >
+                    <ul class="lis">
+                        <li>
+                            <span class="font-semibold">Emitido por:</span> Instituto
+                            Asturiano de Prevención Riesgos Laborales
+                        </li>
+                        <li>
+                            <span class="font-semibold">Fecha de emisión:</span>
+                            Noviembre 2021.
+                        </li>
+                        <li>
+                            <span class="font-semibold">Horas:</span> 50 horas.
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        </table>
+    </div>
+
+    <Footer />
 </Layout>
 
+<style>
+    .lis > li {
+        margin-left: 35px;
+        list-style: circle;
+    }
+
+    .ed {
+        position: relative;
+        max-width: 600px;
+        margin: 0 auto;
+        padding: 0;
+    }
+    .ed::before {
+        content: "";
+        position: absolute;
+        width: 5px;
+        background-color: aquamarine;
+        top: 0;
+        bottom: 0;
+        left: 20px;
+        margin-left: -2px;
+    }
+
+    .date{
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    }
+    
+    .ed > ul > li {
+        padding: 20px 40px;
+        position: relative;
+    }
+    .ed li::before {
+        content: "";
+        position: absolute;
+        width: 12px;
+        height: 12px;
+        border-radius: 30%;
+        background-color: #044253;
+        /* Color del círculo */
+        top: 25px;
+        left: 14px;
+    }
+
+    .ed li .contenido {
+        margin: 20px;
+        padding: 10px;
+        background-color: #33c1fdb6;
+        /* Color de fondo del contenido */
+        border-radius: 6px;
+    }
+</style>

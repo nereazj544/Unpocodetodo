@@ -11,6 +11,7 @@ Este proyecto es para practicar/repasar/aprender algunos lenguajes de programaci
 ![JavaScript](https://img.shields.io/badge/JavaScript%20-%23F7DF1E.svg?style=for-the-badge&logo=javascript&logoColor=black)
 ![Angular](https://img.shields.io/badge/Angular-F30851?style=for-the-badge&logo=angular&logoColor=white)
 ![Java](https://img.shields.io/badge/Java-ED8B00?style=for-the-badge&logo=java&logoColor=white)
+![Python](https://img.shields.io/badge/Python-ED8B00?style=for-the-badge&logo=python&logoColor=white)
 
 #### 🗂️ Database
 ![MySQL](https://img.shields.io/badge/MySQL-00000F?style=for-the-badge&logo=mysql&logoColor=white)&nbsp;

@@ -1,0 +1,215 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #2E4222; /* Background similar to the image */
+            color: #FFFFFF;
+            padding: 20px;
+        }
+
+        .timeline {
+            position: relative;
+            max-width: 600px;
+            /* margin: 0 auto; */
+            margin: 30px;
+            
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            width: 4px;
+            background-color: #D04131; /* Line color */
+            top: 0;
+            bottom: 0;
+            left: 20px;
+            margin-left: -2px;
+        }
+
+        .container {
+            padding: 10px 40px;
+    
+            position: relative;
+            background-color: inherit;
+            width: 100%;
+        }
+
+        .container::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 0;
+            top: 15px;
+            left: 13px;
+            border-style: solid;
+            border-width: 8px 8px 8px 0;
+            border-color: transparent #D04131 transparent transparent;
+            
+        }
+
+        .right::after {
+            left: -8px;
+            border-color: transparent transparent transparent #D04131;
+        }
+
+        .date {
+            position: absolute;
+            left: 0;
+            padding: 3px;
+            margin: 3px;
+            top: 15px;
+            width: 100px;
+            text-align: right;
+            font-weight: bold;
+        }
+
+        .content {
+            padding: 10px;
+            margin: 30px;
+            background-color: #3B5637; /* Box background color */
+            position: relative;
+            border-radius: 6px;
+        }
+    </style>
+    <title>Timeline</title>
+</head>
+<body>
+
+<div class="timeline">
+    <div class="container">
+        <div class="date">2022 - 2023</div>
+        <div class="content">
+            <h3>Digital Campus, Montpellier</h3>
+            <p>Digital Web & Project Management</p>
+        </div>
+    </div>
+    <div class="container">
+        <div class="date">2021 - 2022</div>
+        <div class="content">
+            <h3>IUT de Béziers</h3>
+            <p>Commercialisation Technique</p>
+        </div>
+    </div>
+    <div class="container">
+        <div class="date">2017 - 2020</div>
+        <div class="content">
+            <h3>Economic University, Danang</h3>
+            <p>International Business</p>
+        </div>
+    </div>
+</div>
+
+</body>
+</html> -->
+
+
+
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #2E4222;
+            /* Fondo similar al de la imagen */
+            color: #FFFFFF;
+            padding: 20px;
+        }
+
+        .timeline {
+            position: relative;
+            max-width: 600px;
+            margin: 0 auto;
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            width: 4px;
+            background-color: #D04131;
+            /* Color de la línea */
+            top: 0;
+            bottom: 0;
+            left: 20px;
+            margin-left: -2px;
+        }
+
+        .timeline li {
+            padding: 20px 40px;
+            position: relative;
+        }
+
+        .timeline li::before {
+            content: '';
+            position: absolute;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: #D04131;
+            /* Color del círculo */
+            top: 20px;
+            left: 14px;
+            margin-left: -6px;
+        }
+
+        .timeline li .date {
+            margin: 2px 29px;
+            position: absolute;
+            left: 0;
+            top: 20px;
+            width: 100px;
+            text-align: right;
+            font-weight: bold;
+        }
+
+        .timeline li .content {
+            margin: 20px;
+            padding: 10px;
+            background-color: #3B5637;
+            /* Color de fondo del contenido */
+            border-radius: 6px;
+        }
+    </style>
+    <title>Timeline</title>
+</head>
+
+<body>
+
+    <div class="timeline-container">
+        <ul class="timeline">
+            <li>
+                <div class="date">2022 - 2023</div>
+                <div class="content">
+                    <h3>Digital Campus, Montpellier</h3>
+                    <p>Digital Web & Project Management</p>
+                </div>
+            </li>
+            <li>
+                <div class="date">2021 - 2022</div>
+                <div class="content">
+                    <h3>IUT de Béziers</h3>
+                    <p>Commercialisation Technique</p>
+                </div>
+            </li>
+            <li>
+                <div class="date">2017 - 2020</div>
+                <div class="content">
+                    <h3>Economic University, Danang</h3>
+                    <p>International Business</p>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+</body>
+
+</html>
