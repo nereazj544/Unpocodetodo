@@ -37,7 +37,7 @@ import Footer from "../sections/Footer.astro";
                             </ul>
                             Aún que tambien sé/estoy aprendiendo los siguientes lenguajes:
                             <ul class="font-semibold text-secundary">
-                                <li>Java</li>
+                                <li>Java (Amor-Odio)</li>
                                 <li>MySql / SQLite</li>
                                 <li>JavaScript</li>
                                 <li>TypeScript</li>
@@ -149,25 +149,50 @@ import Footer from "../sections/Footer.astro";
                 </td>
             </tr>
             <tr>
-                <th style="text-align: left;" colspan="2">Idiomas</th>
+                <th style="text-align: left;">Idiomas</th>
+                <th style="text-align: left;" >Conocimientos de:</th>
             </tr>
             <tr>
-                <td colspan="2">
+                <td>
                     <span class="font-extrabold"
                         >Español</span
                     >
                     <ul class="lis">
                         <li>
                             <span class="font-semibold">Nativo</span> 
+                            <div class="puntos">
+                                <div class="uno"></div>
+                                <div class="dos"></div>
+                                <div class="tres"></div>
+                                <div class="cuatro"></div>
+                                <div class="cinco"></div>
+                            </div>
                         </li>
                     </ul>
+                    <br>
                     <span class="font-extrabold"
                         >Inglés</span
                     >
                     <ul class="lis">
                         <li>
                             <span class="font-semibold">B1</span> 
+                            <div class="puntos">
+                                <div class="uno"></div>
+                                <div class="dos"></div>
+                                <div class="tres"></div>
+                                <div class="icuatro"></div>
+                                <div class="icinco"></div>
+                            </div>
                         </li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        <li>Photoshop CS6</li>
+                        <li>VS Code</li>
+                        <li>GitHub</li>
+                        <li>Microsoft Clipchamp</li>
+                        <li>Camtasia Studio</li>
                     </ul>
                 </td>
             </tr>
@@ -229,4 +254,25 @@ import Footer from "../sections/Footer.astro";
         /* Color de fondo del contenido */
         border-radius: 6px;
     }
+
+    .puntos > .uno, .dos, .tres, .cuatro, .cinco{
+            float: left;
+            padding: 3px;
+            margin: 3px;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: #2cf309;
+        }
+    .icuatro, .icinco{
+            float: left;
+            padding: 3px;
+            margin: 3px;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: #535353;
+        }
+
+       
 </style>
