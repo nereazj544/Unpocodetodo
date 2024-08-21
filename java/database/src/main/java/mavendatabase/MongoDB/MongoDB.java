@@ -150,6 +150,7 @@ public class MongoDB {
             }
 
         } while (true);
+        mc.close();
 
     }
 
