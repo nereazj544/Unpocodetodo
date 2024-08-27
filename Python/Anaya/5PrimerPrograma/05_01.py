@@ -18,4 +18,3 @@ mi_edad = edad(2004)
 # mostrar el resultado en pantalla
 
 print("Este año cumplo: ", mi_edad, " años")
-    
