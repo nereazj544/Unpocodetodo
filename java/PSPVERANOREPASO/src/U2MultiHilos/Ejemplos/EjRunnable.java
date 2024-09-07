@@ -1,4 +1,4 @@
-package U2MultiHilos.Ejemplos;
+package U2multihilos.Ejemplos;
 
 public class EjRunnable implements Runnable {
     private String nombre;

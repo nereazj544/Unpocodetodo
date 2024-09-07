@@ -1,4 +1,4 @@
-package U2MultiHilos.Unidad2EjemplosPDF;
+package U2multihilos.Unidad2EjemplosPDF;
 
 import java.io.BufferedReader;
 import java.io.File;

@@ -1,4 +1,4 @@
-package U2MultiHilos.Unidad2EjemplosPDF.Actividad6;
+package U2multihilos.Unidad2EjemplosPDF.Actividad6;
 
 /**
  * Hilos

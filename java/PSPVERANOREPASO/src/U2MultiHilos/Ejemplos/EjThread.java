@@ -1,4 +1,4 @@
-package U2MultiHilos.Ejemplos;
+package U2multihilos.Ejemplos;
 
 /**
  * Ejemplo de Thread

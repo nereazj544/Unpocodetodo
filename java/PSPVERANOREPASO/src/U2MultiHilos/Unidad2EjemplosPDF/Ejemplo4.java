@@ -1,4 +1,4 @@
-package U2MultiHilos.Unidad2EjemplosPDF;
+package U2multihilos.Unidad2EjemplosPDF;
 
 public class Ejemplo4{
     public static void main(String[] args) throws InterruptedException{
