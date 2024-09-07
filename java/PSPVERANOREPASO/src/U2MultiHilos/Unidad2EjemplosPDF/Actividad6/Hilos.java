@@ -4,7 +4,7 @@ package U2MultiHilos.Unidad2EjemplosPDF.Actividad6;
  * Hilos
  */
 public class Hilos implements Runnable {
-    //? BASE DEL EJEMPLO 2
+    // ? BASE DEL EJEMPLO 2
     /*
      * @Override
      * public void run() {
@@ -18,8 +18,8 @@ public class Hilos implements Runnable {
      * }
      */
 
-     //? Para añadir prioridad
-     private int p; //p sera prioridad
+    // ? Para añadir prioridad
+    private int p; // p sera prioridad
 
     public Hilos(int p) {
         this.p = p;
@@ -33,8 +33,9 @@ public class Hilos implements Runnable {
                 Thread.sleep(100);
             } catch (InterruptedException e) {
             }
-            System.out.printf("%s, (PRIORIDAD: %d) mensaje %d \n", Thread.currentThread().getName(), Thread.currentThread().getPriority(),
-             i);
+            System.out.printf("%s, (PRIORIDAD: %d) mensaje %d \n", Thread.currentThread().getName(),
+                    Thread.currentThread().getPriority(),
+                    i);
         }
     }
 
